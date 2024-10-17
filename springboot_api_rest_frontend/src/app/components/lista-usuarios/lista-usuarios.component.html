@@ -12,7 +12,7 @@
       <tr *ngFor="let usuario of usuarios">
         <td>{{usuario.id}}</td>
         <td>{{usuario.nickname}}</td>
-        <td>{{usuario.fechaRegistro}}</td>
+        <td>{{usuario.fechaRegistro | date: 'dd/MM/yyyy, h:mm a' }}</td>
       </tr>
     </tbody>
   </table>

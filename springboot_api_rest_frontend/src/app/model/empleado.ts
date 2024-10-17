@@ -7,5 +7,6 @@ export class Empleado {
   email: string;
   esJefe: boolean;
   nickname: string;
+  fechaNacimiento: Date;
   fechaRegistro: Date;
 }

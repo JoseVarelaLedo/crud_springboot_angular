@@ -24,7 +24,12 @@
         <td>{{empleado.direccion}}</td>
         <td>{{empleado.esJefe}}</td>
         <td>{{empleado.nickname}}</td>
-        <td>{{empleado.fechaRegistro}}</td>
+         <td>{{empleado.fechaRegistro | date: 'dd/MM/yyyy'}}</td>
+        <td>{{empleado.fechaRegistro | date: 'dd/MM/yyyy, h:mm a' }}</td>
+        <td>
+          <button (click) = "actualizarEmpleado (empleado.id)" class = "btn btn-info">Editar</button>
+          <button (click) = "eliminarEmpleado (empleado.id)" class = "btn btn-danger" style="margin-left : 10px">Eliminar</button>
+        </td>
 
       </tr>
     </tbody>

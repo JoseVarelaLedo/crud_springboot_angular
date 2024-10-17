@@ -61,7 +61,5 @@ export class ActualizarDepartamentoComponent implements OnInit{
       ).subscribe();
     }
   }
-
-
 }
 

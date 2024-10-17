@@ -42,7 +42,7 @@ export class RegistrarContactoComponent implements OnInit{
     this.router.navigate(['/contactos']);
     Swal.fire({
       title: 'Contacto creado',
-      text: `El contacto ${this.contacto.nombre} ${this.contacto} ha sido creado con éxito`,
+      text: `El contacto ${this.contacto.nombre} ${this.contacto.apellidos} ha sido creado con éxito`,
       icon: 'success',
       confirmButtonText: 'Aceptar'
   });

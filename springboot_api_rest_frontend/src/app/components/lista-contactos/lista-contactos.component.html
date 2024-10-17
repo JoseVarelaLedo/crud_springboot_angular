@@ -20,7 +20,7 @@
         <td>{{contacto.telefono}}</td>
         <td>{{contacto.email}}</td>
         <td>{{contacto.direccion}}</td>
-        <td>{{contacto.fechaRegistro}}</td>
+        <td>{{ contacto.fechaRegistro | date: 'dd/MM/yyyy, h:mm a' }}</td>
         <td>
           <button (click) = "actualizarContacto (contacto.id)" class = "btn btn-info">Editar</button>
           <button (click) = "eliminarContacto (contacto.id)" class = "btn btn-danger" style="margin-left : 10px">Eliminar</button>

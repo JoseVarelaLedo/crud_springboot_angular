@@ -42,7 +42,7 @@ export class ActualizarContactoComponent implements OnInit {
     this.router.navigate(['/contactos']);
     Swal.fire({
         title: 'Contacto actualizado',
-        text: `El contacto ${this.contacto.nombre} ha sido actualizado con éxito`,
+        text: `El contacto ${this.contacto.nombre} ${this.contacto.apellidos} ha sido actualizado con éxito`,
         icon: 'success',
         confirmButtonText: 'Aceptar'
     });

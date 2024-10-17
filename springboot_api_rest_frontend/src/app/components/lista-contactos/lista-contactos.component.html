@@ -1,0 +1,30 @@
+<h2>Lista de Contactos:</h2>
+
+  <table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>NOMBRE</th>
+          <th>APELLIDOS</th>
+          <th>TELEFONO</th>
+          <th>eMAIL</th>
+          <th>DIRECCION</th>
+          <th>FECHA DE REGISTRO</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contacto of contactos">
+        <td>{{contacto.id}}</td>
+        <td>{{contacto.nombre}}</td>
+        <td>{{contacto.apellidos}}</td>
+        <td>{{contacto.telefono}}</td>
+        <td>{{contacto.email}}</td>
+        <td>{{contacto.direccion}}</td>
+        <td>{{contacto.fechaRegistro}}</td>
+        <td>
+          <button (click) = "actualizarContacto (contacto.id)" class = "btn btn-info">Editar</button>
+          <button (click) = "eliminarContacto (contacto.id)" class = "btn btn-danger" style="margin-left : 10px">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

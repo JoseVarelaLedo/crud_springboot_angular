@@ -1,0 +1,139 @@
+<div class="col-md-6 offset-md-3">
+  <h3 class="text-center">Edición de contacto</h3>
+  <form (ngSubmit)="onSubmit()" #contactoForm="ngForm">
+    <div class="form-group">
+      <label for="nombre">Nombre : </label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombre"
+        [(ngModel)]="contacto.nombre"
+        name="nombre"
+        required
+        minlength="4"
+        maxlength="20"
+        placeholder="Escriba aquí su nombre"
+        #nombre="ngModel"
+      />
+      <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+        <div *ngIf="nombre.errors?.['required']">
+          Escriba su nombre por favor
+        </div>
+        <div *ngIf="nombre.errors?.['minlength']">
+          El nombre tiene que contener como mínimo 4 caracteres
+        </div>
+        <div *ngIf="nombre.errors?.['maxlength']">
+          El nombre tiene que tener como máximo 20 caracteres
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="apellidos">Apellidos : </label>
+      <input
+        type="text"
+        class="form-control"
+        id="apellidos"
+        [(ngModel)]="contacto.apellidos"
+        name="apellidos"
+        required
+        minlength="4"
+        maxlength="35"
+        placeholder="Escriba aquí sus apellidos"
+        #apellidos="ngModel"
+      />
+      <div class="alert alert-danger" *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched)">
+        <div *ngIf="apellidos.errors?.['required']">
+          Escriba sus apellidos por favor
+        </div>
+        <div *ngIf="apellidos.errors?.['minlength']">
+          Los apellidos tiene que contener como mínimo 4 caracteres
+        </div>
+        <div *ngIf="apellidos.errors?.['maxlength']">
+          Los apellidos tiene que tener como máximo 35 caracteres
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="telefono"> telefono: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="telefono"
+        [(ngModel)]="contacto.telefono"
+        name="telefono"
+        pattern="^\d{9}$"
+        required
+        minlength="9"
+        maxlength="9"
+        placeholder="Escriba aquí su teléfono"
+        #telefono="ngModel"
+      />
+      <div class="alert alert-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+        <div *ngIf="telefono.errors?.['required']">
+          Escriba su teléfono por favor
+        </div>
+        <div *ngIf="telefono.errors?.['minlength']">
+          El teléfono tiene que tener formato numérico y 9 dígitos
+        </div>
+        <div *ngIf="telefono.errors?.['maxlength']">
+          El teléfono tiene que tener formato numérico y 9 dígitos
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="email">Email : </label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        [(ngModel)]="contacto.email"
+        name="email"
+        pattern="[a-zA-Z0-9._%+-]+&#64;[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+        required
+        placeholder="Digite su email"
+        #email="ngModel"
+      />
+      <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+        <div *ngIf="email.errors?.['required']">
+          Escriba aquí su email por favor
+        </div>
+        <div *ngIf="email.errors?.['pattern']">
+          Por favor ingrese el email con el siguiente formato: user100&#64;gmail.com
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="direccion"> Dirección: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="direccion"
+        [(ngModel)]="contacto.direccion"
+        name="direccion"
+        required
+        minlength="5"
+        maxlength="50"
+        placeholder="Escriba aquí su dirección"
+        #direccion="ngModel"
+      />
+      <div class="alert alert-danger" *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)">
+        <div *ngIf="direccion.errors?.['required']">
+          Escriba su dirección por favor
+        </div>
+        <div *ngIf="direccion.errors?.['minlength']">
+          La dirección tiene que contener como mínimo 5 caracteres
+        </div>
+        <div *ngIf="direccion.errors?.['maxlength']">
+          La dirección tiene que tener como máximo 50 caracteres
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-success" [disabled]="!contactoForm.form.valid" type="submit">Guardar Cambios</button>
+  </form>
+</div>

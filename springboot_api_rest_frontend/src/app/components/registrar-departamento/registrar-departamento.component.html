@@ -1,0 +1,33 @@
+<div class="col-md-6 offset-md-3">
+  <h3 class="text-center">Registro de departamentos</h3>
+  <form (ngSubmit)="onSubmit()" #departamentoForm="ngForm">
+    <div class="form-group">
+      <label for="nombre">Nombre : </label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombre"
+        [(ngModel)]="departamento.nombreDepartamento"
+        name="nombre"
+        required
+        minlength="4"
+        maxlength="20"
+        placeholder="Escriba aquí el nombre del Departamento"
+        #nombreDepartamento="ngModel"
+      />
+      <div class="alert alert-danger" *ngIf="nombreDepartamento.invalid && (nombreDepartamento.dirty || nombreDepartamento.touched)">
+        <div *ngIf="nombreDepartamento.errors?.['required']">
+          Escriba el nombre del departamento, por favor
+        </div>
+        <div *ngIf="nombreDepartamento.errors?.['minlength']">
+          El nombre del departamento tiene que contener como mínimo 4 caracteres
+        </div>
+        <div *ngIf="nombreDepartamento.errors?.['maxlength']">
+          El nombre del departamento tiene que tener como máximo 20 caracteres
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-success" [disabled]="!departamentoForm.form.valid" type="submit">Guardar Cambios</button>
+  </form>
+</div>

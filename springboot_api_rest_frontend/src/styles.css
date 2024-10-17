@@ -1,0 +1,64 @@
+
+.navbar-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Espaciado entre los elementos */
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: #343a40; /* Color oscuro para la barra */
+  padding-top: 20px;
+  z-index: 1000; /* Para que siempre esté por encima del contenido */
+}
+
+.sidebar .nav-link {
+  color: #ffffff;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #495057;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.content {
+  margin-left: 260px; /* Desplaza el contenido principal a la derecha */
+  padding: 20px;
+}
+
+.nav-item {
+  flex: 1 1 calc(50% - 20px); /* Cada elemento ocupará la mitad del ancho */
+  display: flex;
+  justify-content: center;
+}
+
+.custom-title {
+  font-size: 3.5rem;
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+  animation: pulse 3s infinite;
+  font-family: 'Montserrat', sans-serif; /* Cambia la tipografía a Montserrat */
+  font-weight: 800; /* Peso de la fuente más grueso */
+  margin: 20px 0;
+  letter-spacing: 1px; /* Un ligero espaciado entre letras para darle estilo */
+}
+
+@keyframes pulse {
+  0%, 100% {
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    text-shadow: 5px 5px 30px rgba(0, 0, 0, 0.6);
+  }
+}
+
+

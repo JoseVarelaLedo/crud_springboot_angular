@@ -1,0 +1,31 @@
+<h2>Lista de Empleados:</h2>
+
+  <table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>NOMBRE</th>
+          <th>APELLIDOS</th>
+          <th>TELEFONO</th>
+          <th>eMAIL</th>
+          <th>DIRECCION</th>
+          <th>JEFE DE DEPARTAMENTO?</th>
+          <th>NICKNAME</th>
+          <th>FECHA DE REGISTRO</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empleado of empleados">
+        <td>{{empleado.id}}</td>
+        <td>{{empleado.nombre}}</td>
+        <td>{{empleado.apellidos}}</td>
+        <td>{{empleado.telefono}}</td>
+        <td>{{empleado.email}}</td>
+        <td>{{empleado.direccion}}</td>
+        <td>{{empleado.esJefe}}</td>
+        <td>{{empleado.nickname}}</td>
+        <td>{{empleado.fechaRegistro}}</td>
+
+      </tr>
+    </tbody>
+  </table>

@@ -20,6 +20,7 @@ import java.util.Map;
 public class EmpleadoRestController {
     @Autowired
     private EmpleadoService empleadoService;
+
     @GetMapping
     private ResponseEntity<List<Empleado>> getTodosEmpleados(){
         return ResponseEntity.ok(empleadoService.listarEmpleados());

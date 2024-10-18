@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-registrar-contacto',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule ],
+  imports: [ CommonModule, FormsModule, RouterModule ],
   templateUrl: './registrar-contacto.component.html',
   styleUrls: ['./registrar-contacto.component.css']
 })

@@ -1,1 +1,59 @@
-<p>registrar-usuario works!</p>
+<div class="col-md-6 offset-md-3">
+  <h3 class="text-center">Registro de usuarios</h3>
+  <form (ngSubmit)="onSubmit()" #usuarioForm="ngForm">
+    <div class="form-group">
+      <label for="nickname">NickName : </label>
+      <input
+        type="text"
+        class="form-control"
+        id="nickname"
+        [(ngModel)]="usuario.nickname"
+        name="nickname"
+        required
+        minlength="4"
+        maxlength="10"
+        placeholder="Escriba aquí el nickName del usuario"
+        #nickname="ngModel"
+      />
+      <div class="alert alert-danger" *ngIf="nickname.invalid && (nickname.dirty || nickname.touched)">
+        <div *ngIf="nickname.errors?.['required']">
+          Escriba el nickname del usuario, por favor
+        </div>
+        <div *ngIf="nickname.errors?.['minlength']">
+          El nickname del usuario tiene que contener como mínimo 4 caracteres
+        </div>
+        <div *ngIf="nickname.errors?.['maxlength']">
+          El nickname del usuario tiene que tener como máximo 10 caracteres
+        </div>
+      </div>
+
+      <label for="contrasena">Contraseña : </label>
+      <input
+        type="password"
+        class="form-control"
+        id="contrasena"
+        [(ngModel)]="usuario.contrasena"
+        name="contrasena"
+        required
+        minlength="4"
+        maxlength="12"
+        placeholder="Escriba aquí la contraseña del usuario"
+        #contrasena="ngModel"
+      />
+      <div class="alert alert-danger" *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)">
+        <div *ngIf="contrasena.errors?.['required']">
+          Escriba la contraseña del usuario, por favor
+        </div>
+        <div *ngIf="contrasena.errors?.['minlength']">
+          La contraseña del usuario tiene que contener como mínimo 4 caracteres
+        </div>
+        <div *ngIf="contrasena.errors?.['maxlength']">
+          La contraseñadel usuario tiene que tener como máximo 12 caracteres
+        </div>
+      </div>
+    </div>
+
+
+    <button class="btn btn-success" [disabled]="!usuarioForm.form.valid" type="submit">Guardar Usuario</button>
+  </form>
+</div>

@@ -28,7 +28,7 @@ export class ListaEmpleadosComponent {
 
   actualizarEmpleado (id:number) {
     this.router.navigate (['/actualizar-empleado', id]);
-     // Refrescar la lista de contactos después de eliminar
+     // Para refrescar la lista de contactos después de eliminar
     this.obtenerEmpleados();
   }
 

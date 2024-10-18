@@ -4,7 +4,7 @@ export class Empleado {
   apellidos: string;
   telefono: string;
   direccion: string;
-  email: string;
+  correoElectronico: string;
   esJefe: boolean;
   nickname: string;
   fechaNacimiento: Date;

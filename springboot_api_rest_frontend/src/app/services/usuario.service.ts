@@ -16,4 +16,20 @@ export class UsuarioService {
   obtenerListaDeUsuarios (): Observable <Usuario[]>{
     return this.httpClient.get<Usuario[]>(`${this.baseURL}`);
   }
+
+  obtenerUsuarioPorId (id:number) : Observable<Usuario>{
+    return this.httpClient.get<Usuario> (`${this.baseURL}/${id}`);
+  }
+
+  registrarUsuario (usuario:Usuario) : Observable<Usuario>{
+    return this.httpClient.post<Usuario>(`${this.baseURL}`, usuario);
+  }
+
+  eliminarUsuario (id:number) : Observable<Usuario>{
+    return this.httpClient.delete <Usuario>(`${this.baseURL}/${id}`);
+  }
+
+  actualizarUsuario(id: number, usuario: Usuario): Observable<Usuario> {
+    return this.httpClient.put<Usuario>(`${this.baseURL}/${id}`, usuario);
+  }
 }

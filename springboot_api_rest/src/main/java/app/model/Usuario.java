@@ -25,7 +25,7 @@ public class Usuario {
     @Column(nullable = false, unique = true, length = 50)
     private String nickname;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false, length = 30)
     private String contrasena;
 
     @ManyToOne
@@ -34,7 +34,7 @@ public class Usuario {
     private Rol rol;
 
     @OneToOne
-    @JoinColumn(name = "empleado_id", referencedColumnName = "id")
+    @JoinColumn(name = "empleado_id")
     @JsonIgnore
     private Empleado empleado;
 
@@ -42,7 +42,7 @@ public class Usuario {
     private LocalDateTime fechaRegistro;
 
     @PrePersist
-    private void asignarFechaRegistro(){
+    private void onCreate(){
         this.fechaRegistro = LocalDateTime.now();
     }
 }

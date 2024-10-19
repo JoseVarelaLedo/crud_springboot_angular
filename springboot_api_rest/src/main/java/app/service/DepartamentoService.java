@@ -3,6 +3,7 @@ package app.service;
 
 import app.model.Departamento;
 import app.repository.DepartamentoRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ public class DepartamentoService {
         return departamentoRepository.findAll();
     }
 
+    @Transactional
     public void crearDepartamento(Departamento departamento) {
         departamentoRepository.save(departamento);
     }
@@ -25,6 +27,7 @@ public class DepartamentoService {
         return departamentoRepository.findById(id).orElse(null);
     }
 
+    @Transactional
     public void actualizarDepartamento(Departamento departamento) {
         departamentoRepository.save(departamento);
     }

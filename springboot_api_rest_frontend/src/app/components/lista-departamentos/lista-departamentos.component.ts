@@ -4,6 +4,7 @@ import { Departamento } from '../../model/departamento';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Jefe } from '../../model/jefe';
 
 @Component({
   selector: 'app-lista-departamentos',
@@ -14,6 +15,9 @@ import Swal from 'sweetalert2';
 })
 export class ListaDepartamentosComponent {
   departamentos: Departamento[];
+  jefe:any;
+  jefes: { [key: number]: Jefe } = {}; // Almacena los jefes por ID de departamento
+
 
   constructor (private readonly departamentoService:DepartamentoService, private readonly router:Router) { }
 
@@ -21,9 +25,19 @@ export class ListaDepartamentosComponent {
     this.obtenerDepartamentos();
   }
 
-  private obtenerDepartamentos(){
-    this.departamentoService.obtenerListaDeDepartamentos().subscribe(datosDepartamento=>{this.departamentos = datosDepartamento});
+  private obtenerDepartamentos() {
+    this.departamentoService.obtenerListaDeDepartamentos().subscribe(datosDepartamento => {
+      this.departamentos = datosDepartamento;
+      // Obtener el jefe para cada departamento
+      this.departamentos.forEach(departamento => {
+        this.departamentoService.obtenerJefePorDepartamento(departamento.id).subscribe(jefe => {
+          this.jefes[departamento.id] = jefe; // Almacena el jefe en el objeto
+        });
+      });
+    });
   }
+
+
 
   actualizarDepartamento (id:number) {
     this.router.navigate (['/actualizar-departamento', id]);

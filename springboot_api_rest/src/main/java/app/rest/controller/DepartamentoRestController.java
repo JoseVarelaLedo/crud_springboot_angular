@@ -3,7 +3,9 @@ package app.rest.controller;
 import app.exceptions.ResourceNotFoundException;
 import app.model.Contacto;
 import app.model.Departamento;
+import app.model.Empleado;
 import app.service.DepartamentoService;
+import app.service.EmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/departamentos")
@@ -19,6 +22,8 @@ import java.util.Map;
 public class DepartamentoRestController {
     @Autowired
     private DepartamentoService departamentoService;
+    @Autowired
+    private EmpleadoService empleadoService;
     @GetMapping
     private ResponseEntity<List<Departamento>> getTodosDepartamentos(){
         return ResponseEntity.ok(departamentoService.listarDepartamento());
@@ -33,6 +38,7 @@ public class DepartamentoRestController {
             throw new ResourceNotFoundException("Departamento " + id + " no encontrado");
         }
     }
+
 
     @PostMapping
     public ResponseEntity<Departamento> crearDepartamento(@RequestBody Departamento departamento) {

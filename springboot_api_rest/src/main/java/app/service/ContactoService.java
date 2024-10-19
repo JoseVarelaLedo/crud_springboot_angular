@@ -2,6 +2,7 @@ package app.service;
 
 import app.model.Contacto;
 import app.repository.ContactoRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ public class ContactoService {
         return contactoRepository.findAll();
     }
 
+    @Transactional
     public void crearContacto(Contacto contacto) {
         contactoRepository.save(contacto);
     }
@@ -23,6 +25,7 @@ public class ContactoService {
         return contactoRepository.findById(id).orElse(null);
     }
 
+    @Transactional
     public void actualizarContacto(Contacto contacto) {
         contactoRepository.save(contacto);
     }

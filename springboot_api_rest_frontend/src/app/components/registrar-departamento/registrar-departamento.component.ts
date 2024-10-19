@@ -24,7 +24,7 @@ export class RegistrarDepartamentoComponent {
   ngOnInit(): void {
   }
 
-  guardarContacto(){
+  guardarDepartamento(){
     this.departamentoService.registrarDepartamento (this.departamento).subscribe(datosDepartamento =>{
       // console.log(datoContacto);
       this.navigateListaDepartamentos();
@@ -42,6 +42,6 @@ export class RegistrarDepartamentoComponent {
   }
 
   onSubmit() {
-    this.guardarContacto();
+    this.guardarDepartamento();
   }
 }

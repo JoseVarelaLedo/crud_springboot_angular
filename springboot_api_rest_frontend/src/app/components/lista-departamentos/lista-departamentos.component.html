@@ -1,11 +1,11 @@
-<h2>Lista de Departamentos:</h2>
+<h2 class="tituloSeccion">Lista de Departamentos:</h2>
 
   <table class="table table-striped">
     <thead class="table-dark">
         <tr>
           <th>ID</th>
           <th>NOMBRE DEL DEPARTAMENTO</th>
-          <!-- <th>JEFE DE DEPARTAMENTO</th> -->
+          <th>JEFE DE DEPARTAMENTO: </th>
           <th>FECHA DE REGISTRO</th>
         </tr>
     </thead>
@@ -13,11 +13,11 @@
       <tr *ngFor="let departamento of departamentos">
         <td>{{departamento.id}}</td>
         <td>{{departamento.nombreDepartamento}}</td>
-        <!-- <td>{{departamento.jefe}}</td> -->
+        <td>{{ (jefes[departamento.id]?.nombre || 'No asignado') + ' ' + (jefes[departamento.id]?.apellidos || '') }}</td>
         <td>{{departamento.fechaRegistro| date: 'dd/MM/yyyy, h:mm a' }}</td>
-        <td>
-          <button (click) = "actualizarDepartamento (departamento.id)" class = "btn btn-info">Editar</button>
-          <button (click) = "eliminarDepartamento (departamento.id)" class = "btn btn-danger" style="margin-left : 10px">Eliminar</button>
+        <td class="button-group">
+          <button (click)="actualizarDepartamento(departamento.id)" class="btn btn-info">Editar</button>
+          <button (click)="eliminarDepartamento(departamento.id)" class="btn btn-danger">Eliminar</button>
         </td>
       </tr>
     </tbody>

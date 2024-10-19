@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Departamento } from '../model/departamento';
+import { Jefe } from '../model/jefe';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,9 @@ export class DepartamentoService {
 
   obtenerDepartamentoPorId (id:number) : Observable<Departamento>{
     return this.httpClient.get<Departamento> (`${this.baseURL}/${id}`);
+  }
+  obtenerJefePorDepartamento(departamentoId: number): Observable<Jefe> {
+    return this.httpClient.get<Jefe>(`http://localhost:9666/empleados/jefe-departamento/${departamentoId}`);
   }
 
   registrarDepartamento (departamento:Departamento) : Observable<Departamento>{

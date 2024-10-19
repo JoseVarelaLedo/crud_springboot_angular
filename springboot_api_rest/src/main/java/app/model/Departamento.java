@@ -24,26 +24,19 @@ public class Departamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "nombre_departamento", nullable = false, length = 100)
+    @Column(name = "nombre_departamento", nullable = false, unique = true, length = 100)
     private String nombreDepartamento;
 
     @OneToOne
-    @JoinColumn(name = "jefe_departamento", referencedColumnName = "id")
+    @JoinColumn(name = "jefe_departamento", referencedColumnName = "id", unique = true)
     @JsonIgnore
     private Empleado jefeDepartamento;
-
-//    private String nombreJefe = jefeDepartamento.getNombre();
-
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "departamento")
-    private Set<Empleado> empleados = new HashSet<>();
 
     @Column
     private LocalDateTime fechaRegistro;
 
     @PrePersist
-    private void asignarFechaRegistro(){
+    private void onCreate(){
         this.fechaRegistro = LocalDateTime.now();
     }
 }

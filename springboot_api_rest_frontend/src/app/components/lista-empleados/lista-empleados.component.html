@@ -1,4 +1,4 @@
-<h2>Lista de Empleados:</h2>
+<h2 class="tituloSeccion">Lista de Empleados:</h2>
 
   <table class="table table-striped">
     <thead class="table-dark">
@@ -6,11 +6,13 @@
           <th>ID</th>
           <th>NOMBRE</th>
           <th>APELLIDOS</th>
-          <th>TELEFONO</th>
+          <th>TLF</th>
           <th>eMAIL</th>
           <th>DIRECCION</th>
-          <th>JEFE DE DEPARTAMENTO?</th>
+          <th>DEPARTAMENTO</th>
+          <th>STATUS</th>
           <th>NICKNAME</th>
+          <th>FECHA NACIMIENTO</th>
           <th>FECHA DE REGISTRO</th>
         </tr>
     </thead>
@@ -22,14 +24,19 @@
         <td>{{empleado.telefono}}</td>
         <td>{{empleado.correoElectronico}}</td>
         <td>{{empleado.direccion}}</td>
-        <td>{{empleado.esJefe}}</td>
+        <td>{{empleado.nombreDepartamento}}</td>
+        <td>{{ empleado.esJefe ? 'Jefe dpto.' : 'Empleado' }}</td>
         <td>{{empleado.nickname}}</td>
+        <td>{{empleado.fechaNacimiento}}</td>
         <td>{{empleado.fechaRegistro | date: 'dd/MM/yyyy, h:mm a' }}</td>
-        <td>
+        <td class="button-group">
           <button (click) = "actualizarEmpleado (empleado.id)" class = "btn btn-info">Editar</button>
-          <button (click) = "eliminarEmpleado (empleado.id)" class = "btn btn-danger" style="margin-left : 10px">Eliminar</button>
+          <button (click) = "eliminarEmpleado (empleado.id)" class = "btn btn-danger">Eliminar</button>
         </td>
-
       </tr>
     </tbody>
+
   </table>
+
+  <button (click)="prevPage()" [disabled]="page === 0">Anterior</button>
+<button (click)="nextPage()" [disabled]="page + 1 >= totalPages">Siguiente</button>

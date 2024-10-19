@@ -15,16 +15,30 @@ import Swal from 'sweetalert2';
 })
 export class ListaEmpleadosComponent {
   empleados: Empleado[];
+  page = 0;
+  size = 7;
+  totalElements= 0;
+  totalPages=0;
 
   constructor (private readonly empleadoService:EmpleadoService, private readonly router:Router) { }
 
   ngOnInit(): void{
+
     this.obtenerEmpleados();
   }
 
-  private obtenerEmpleados(){
-    this.empleadoService.obtenerListaDeEmpleados().subscribe(datosEmpleado=>{this.empleados = datosEmpleado});
+  //método funcional antes de paginación
+  // private obtenerEmpleados(){
+  //   this.empleadoService.obtenerListaDeEmpleados().subscribe(datosEmpleado=>{this.empleados = datosEmpleado});
+  // }
+  private obtenerEmpleados() {
+    this.empleadoService.obtenerListaDeEmpleados(this.page, this.size).subscribe(response => {
+      this.empleados = response.content;  // Lista de empleados paginados
+      this.totalElements = response.totalElements;  // Número total de empleados
+      this.totalPages = response.totalPages;  // Total de páginas
+    });
   }
+
 
   actualizarEmpleado (id:number) {
     this.router.navigate (['/actualizar-empleado', id]);
@@ -79,4 +93,20 @@ export class ListaEmpleadosComponent {
       });
     }
   }
+
+
+  nextPage() {
+    if ((this.page + 1) * this.size < this.totalElements) {
+      this.page++;
+      this.obtenerEmpleados();
+    }
+  }
+
+  prevPage() {
+    if (this.page > 0) {
+      this.page--;
+      this.obtenerEmpleados();
+    }
+  }
+
 }

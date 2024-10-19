@@ -1,4 +1,4 @@
-<h2>Lista de Contactos:</h2>
+<h2 class="tituloSeccion">Lista de Contactos:</h2>
 
   <table class="table table-striped">
     <thead class="table-dark">
@@ -21,9 +21,9 @@
         <td>{{contacto.email}}</td>
         <td>{{contacto.direccion}}</td>
         <td>{{ contacto.fechaRegistro | date: 'dd/MM/yyyy, h:mm a' }}</td>
-        <td>
+        <td class="button-group">
           <button (click) = "actualizarContacto (contacto.id)" class = "btn btn-info">Editar</button>
-          <button (click) = "eliminarContacto (contacto.id)" class = "btn btn-danger" style="margin-left : 10px">Eliminar</button>
+          <button (click) = "eliminarContacto (contacto.id)" class = "btn btn-danger">Eliminar</button>
         </td>
       </tr>
     </tbody>

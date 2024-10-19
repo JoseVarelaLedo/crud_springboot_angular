@@ -7,6 +7,8 @@ export class Empleado {
   correoElectronico: string;
   esJefe: boolean;
   nickname: string;
+  departamentoId : number;
+  nombreDepartamento: string;
   fechaNacimiento: Date;
   fechaRegistro: Date;
 }

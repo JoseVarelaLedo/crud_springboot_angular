@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+
 
 .navbar-nav {
   display: flex;
@@ -28,9 +33,23 @@
   border-radius: 5px;
 }
 
+.tituloSeccion {
+  color: #6e64bf; /* El color que prefieras */
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+
+  text-align: left; /* Si quieres centrar los títulos */
+  margin-left: 15%;
+}
+
 .content {
   margin-left: 260px; /* Desplaza el contenido principal a la derecha */
   padding: 20px;
+}
+
+body {
+  /* background-color: aliceblue; */
+  background-image: url('./app/assets/img/fondoBody.jpg');
 }
 
 .nav-item {
@@ -41,7 +60,7 @@
 
 .custom-title {
   font-size: 3.5rem;
-  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  background: linear-gradient(90deg, #e6728d, #80c3df);
   -webkit-background-clip: text;
   color: transparent;
   text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
@@ -52,6 +71,25 @@
   letter-spacing: 1px; /* Un ligero espaciado entre letras para darle estilo */
 }
 
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-info, .btn-danger {
+  padding: 10px 15px;
+  font-size: 14px;
+}
+.table thead th {
+  text-align: center;
+  vertical-align: middle; /* Alinear verticalmente al centro */
+}
+
+/* Alinear el texto al centro en las celdas del cuerpo de la tabla */
+.table tbody td {
+  text-align: center;
+  vertical-align: middle; /* Alinear verticalmente al centro */
+}
 @keyframes pulse {
   0%, 100% {
     text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);

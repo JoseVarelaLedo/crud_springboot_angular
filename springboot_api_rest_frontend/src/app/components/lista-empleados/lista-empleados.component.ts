@@ -19,6 +19,8 @@ export class ListaEmpleadosComponent {
   size = 7;
   totalElements= 0;
   totalPages=0;
+  sortField = 'id'; // Campo de ordenación por defecto
+  sortDirection = 'asc'; // Dirección por defecto
 
   constructor (private readonly empleadoService:EmpleadoService, private readonly router:Router) { }
 
@@ -31,14 +33,25 @@ export class ListaEmpleadosComponent {
   // private obtenerEmpleados(){
   //   this.empleadoService.obtenerListaDeEmpleados().subscribe(datosEmpleado=>{this.empleados = datosEmpleado});
   // }
-  private obtenerEmpleados() {
-    this.empleadoService.obtenerListaDeEmpleados(this.page, this.size).subscribe(response => {
-      this.empleados = response.content;  // Lista de empleados paginados
-      this.totalElements = response.totalElements;  // Número total de empleados
-      this.totalPages = response.totalPages;  // Total de páginas
-    });
-  }
+  // private obtenerEmpleados() {
+  //   this.empleadoService.obtenerListaDeEmpleados(this.page, this.size).subscribe(response => {
+  //     this.empleados = response.content;  // Lista de empleados paginados
+  //     this.totalElements = response.totalElements;  // Número total de empleados
+  //     this.totalPages = response.totalPages;  // Total de páginas
+  //   });
+  // }
 
+  private obtenerEmpleados() {
+    this.empleadoService.obtenerListaDeEmpleados(this.page, this.size, this.sortField, this.sortDirection).subscribe(
+      (response: any) => {
+        this.empleados = response.content;
+        this.totalPages = response.totalPages;
+      },
+      (error) => {
+        console.error('Error al obtener la lista de empleados', error);
+      }
+    );
+  }
 
   actualizarEmpleado (id:number) {
     this.router.navigate (['/actualizar-empleado', id]);
@@ -94,9 +107,8 @@ export class ListaEmpleadosComponent {
     }
   }
 
-
   nextPage() {
-    if ((this.page + 1) * this.size < this.totalElements) {
+    if (this.page + 1 < this.totalPages) {
       this.page++;
       this.obtenerEmpleados();
     }
@@ -108,5 +120,23 @@ export class ListaEmpleadosComponent {
       this.obtenerEmpleados();
     }
   }
+  // Método para cambiar el orden
+  // ordenarPor(campo: string) {
+  //   if (this.sortField === campo) {
+  //     // Si ya está ordenando por este campo, cambiar la dirección
+  //     this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+  //   } else {
+  //     // Si es un nuevo campo, reiniciar a ascendente
+  //     this.sortField = campo;
+  //     this.sortDirection = 'asc';
+  //   }
+  //   this.obtenerEmpleados();
+  // }
+  ordenarPor(campo: string) {
+    this.sortField = campo;
+    this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    this.obtenerEmpleados();  // Volver a obtener empleados con la nueva ordenación
+  }
+
 
 }

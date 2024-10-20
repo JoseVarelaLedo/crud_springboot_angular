@@ -43,14 +43,16 @@ public class EmpleadoRestController {
 //        List<EmpleadoDTO> empleados = empleadoService.listarEmpleados(page, size);
 //        return ResponseEntity.ok(empleados);
 //    }
-@GetMapping
-public ResponseEntity<Page<EmpleadoDTO>> listarEmpleados(
-        @RequestParam(defaultValue = "0") int page,
-        @RequestParam(defaultValue = "7") int size) {
-    // Llama al servicio y devuelve la respuesta paginada
-    Page<EmpleadoDTO> empleados = empleadoService.listarEmpleados(page, size);
-    return ResponseEntity.ok(empleados);
-}
+    @GetMapping
+    public ResponseEntity<Page<EmpleadoDTO>> listarEmpleados(
+            @RequestParam(defaultValue = "0") int pag,
+            @RequestParam(defaultValue = "7") int tam,
+            @RequestParam(defaultValue = "id") String campoOrdenacion,
+            @RequestParam(defaultValue = "asc") String direccionOrdenacion) {
+        // Llama al servicio y devuelve la respuesta paginada
+        Page<EmpleadoDTO> empleados = empleadoService.listarEmpleados(pag, tam, campoOrdenacion, direccionOrdenacion);
+        return ResponseEntity.ok(empleados);
+    }
 
 
 

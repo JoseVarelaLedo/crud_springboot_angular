@@ -11,6 +11,7 @@ import app.repository.EmpleadoRepository;
 import app.repository.UsuarioRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -62,15 +63,17 @@ public class EmpleadoService {
 //            return dto;
 //        }).collect(Collectors.toList());
 //    }
-    public Page<EmpleadoDTO> listarEmpleados(int page, int size) {
+    public Page<EmpleadoDTO> listarEmpleados(int pag, int tam, String campoOrdenacion, String direccionOrdenacion) {
+        Sort.Direction direccion  = direccionOrdenacion.equalsIgnoreCase("asc") ? Sort.Direction.ASC : Sort.Direction.DESC;
         // Crear el objeto Pageable
-        Pageable pageable = PageRequest.of(page, size);
+        Pageable pageable = PageRequest.of(pag, tam, Sort.by(direccion, campoOrdenacion));
 
         // Obtener la página de empleados desde el repositorio
         Page<Empleado> empleadosPage = empleadoRepository.findAll(pageable);
 
+
         // Convertir la página de entidades Empleado a DTOs
-        Page<EmpleadoDTO> empleadosDTOPage = empleadosPage.map(empleado -> {
+        return empleadosPage.map(empleado -> {
             EmpleadoDTO dto = new EmpleadoDTO();
             dto.setId(empleado.getId());
             dto.setNombre(empleado.getNombre());
@@ -87,7 +90,7 @@ public class EmpleadoService {
             return dto;
         });
 
-        return empleadosDTOPage;
+//        return empleadosDTOPage;
     }
 
     public Optional<Empleado> obtenerJefePorDepartamento(Integer departamentoId) {

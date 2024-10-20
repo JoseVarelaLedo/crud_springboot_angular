@@ -1,20 +1,21 @@
-<h2 class="tituloSeccion">Lista de Empleados:</h2>
+  <h2 class="tituloSeccion">Lista de Empleados:</h2>
+
 
   <table class="table table-striped">
     <thead class="table-dark">
-        <tr>
-          <th>ID</th>
-          <th>NOMBRE</th>
-          <th>APELLIDOS</th>
-          <th>TLF</th>
-          <th>eMAIL</th>
-          <th>DIRECCION</th>
-          <th>DEPARTAMENTO</th>
-          <th>STATUS</th>
-          <th>NICKNAME</th>
-          <th>FECHA NACIMIENTO</th>
-          <th>FECHA DE REGISTRO</th>
-        </tr>
+      <tr>
+        <th (click)="ordenarPor('id')" onkeydown="true">ID</th>
+        <th (click)="ordenarPor('nombre')" onkeydown="true">NOMBRE</th>
+        <th (click)="ordenarPor('apellidos')" onkeydown="true">APELLIDOS</th>
+        <th (click)="ordenarPor('telefono')" onkeydown="true">TELÉFONO</th>
+        <th (click)="ordenarPor('correoElectronico')" onkeydown="true">eMAIL</th>
+        <th (click)="ordenarPor('direccion')" onkeydown="true">DIRECCIÓN</th>
+        <th (click)="ordenarPor('departamentoID')" onkeydown="true">DEPARTAMENTO</th>
+        <th (click)="ordenarPor('esJefe')" onkeydown="true">ESTATUS</th>
+        <th (click)="ordenarPor('nickname')" onkeydown="true">NICKNAME</th>
+        <th (click)="ordenarPor('fechaNacimiento')" onkeydown="true">FECHA NACIMIENTO</th>
+        <th (click)="ordenarPor('fechaRegistro')" onkeydown="true">FECHA REGISTRO</th>
+      </tr>
     </thead>
     <tbody>
       <tr *ngFor="let empleado of empleados">
@@ -24,8 +25,8 @@
         <td>{{empleado.telefono}}</td>
         <td>{{empleado.correoElectronico}}</td>
         <td>{{empleado.direccion}}</td>
-        <td>{{empleado.nombreDepartamento}}</td>
-        <td>{{ empleado.esJefe ? 'Jefe dpto.' : 'Empleado' }}</td>
+        <td>{{empleado.departamentoId}}_{{empleado.nombreDepartamento}}</td>
+        <td>{{empleado.esJefe ? 'Jefe dpto.' : 'Empleado' }}</td>
         <td>{{empleado.nickname}}</td>
         <td>{{empleado.fechaNacimiento}}</td>
         <td>{{empleado.fechaRegistro | date: 'dd/MM/yyyy, h:mm a' }}</td>
@@ -39,4 +40,4 @@
   </table>
 
   <button (click)="prevPage()" [disabled]="page === 0">Anterior</button>
-<button (click)="nextPage()" [disabled]="page + 1 >= totalPages">Siguiente</button>
+  <button (click)="nextPage()" [disabled]="page + 1 >= totalPages">Siguiente</button>

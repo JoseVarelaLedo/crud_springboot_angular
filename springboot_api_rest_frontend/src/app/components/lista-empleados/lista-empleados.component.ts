@@ -21,6 +21,19 @@ export class ListaEmpleadosComponent {
   totalPages=0;
   sortField = 'id'; // Campo de ordenación por defecto
   sortDirection = 'asc'; // Dirección por defecto
+  columnas = [
+    { titulo: 'ID', campo: 'id' },
+    { titulo: 'NOMBRE', campo: 'nombre' },
+    { titulo: 'APELLIDOS', campo: 'apellidos' },
+    { titulo: 'TELÉFONO', campo: 'telefono' },
+    { titulo: 'eMAIL', campo: 'correoElectronico' },
+    { titulo: 'DIRECCIÓN', campo: 'direccion' },
+    { titulo: 'DEPARTAMENTO', campo: 'departamentoId' },
+    { titulo: 'ESTATUS', campo: 'esJefe' },
+    { titulo: 'NICKNAME', campo: 'nickname' },
+    { titulo: 'FECHA NACIMIENTO', campo: 'fechaNacimiento' },
+    { titulo: 'FECHA REGISTRO', campo: 'fechaRegistro' }
+  ];
 
   constructor (private readonly empleadoService:EmpleadoService, private readonly router:Router) { }
 

@@ -99,4 +99,13 @@ body {
   }
 }
 
+.icon-up::before {
+  color: white;
+}
+
+.icon-down::before {
+  color: white;
+}
+
+
 

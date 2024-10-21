@@ -33,5 +33,5 @@
   </tbody>
 </table>
 
-<button (click)="prevPage()" [disabled]="page === 0">Anterior</button>
-<button (click)="nextPage()" [disabled]="page + 1 >= totalPages">Siguiente</button>
+<button (click)="prevPage()"  class="btn btn-outline-dark" [disabled]="page === 0">Anterior</button>
+<button (click)="nextPage()"  class="btn btn-outline-dark" [disabled]="page + 1 >= totalPages">Siguiente</button>

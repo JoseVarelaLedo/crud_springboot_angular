@@ -1,13 +1,17 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Pipe({
-  name: 'translate',
+  name: 'customTranslate',
   standalone: true
 })
-export class TranslatePipe implements PipeTransform {
+export class CustomTranslatePipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  constructor(private translateService: TranslateService) {}
+
+  transform(value: string): string {
+    // Usa el servicio de traducción para traducir la clave
+    return this.translateService.instant(value);
   }
-
 }
+

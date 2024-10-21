@@ -1,5 +1,5 @@
 {
-  "applicationTitle": "Sistema Gestión BD,",
+  "applicationTitle": "Sistema Gestión BD",
   "contactListTitle": "Lista de Contactos",
   "departmentListTitle": "Lista de Departamentos",
   "employeeListTitle": "Lista de Empleados",
@@ -47,5 +47,10 @@
   "passwordFormPlaceholder": "Escriba aquí la contraseña del usuario",
   "spanish": "español",
   "english": "inglés",
-  "galician": "galego"
+  "galician": "galego",
+  "editContactTitle": "Edición de contacto",
+  "editDepartmentTitle": "Edición de departamento",
+  "editEmployeeTitle": "Edición de empleado"
+
+
 }

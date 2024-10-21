@@ -5,12 +5,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, of, tap } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-actualizar-contacto',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, TranslateModule],
   templateUrl: './actualizar-contacto.component.html',
   styleUrls: ['./actualizar-contacto.component.css']
 })

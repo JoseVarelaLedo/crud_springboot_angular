@@ -1,8 +1,8 @@
 <div class="col-md-6 offset-md-3">
-  <h3 class="text-center">Edición de contacto</h3>
+  <h3 class="text-center">{{'editContactTitle' | translate}}</h3>
   <form (ngSubmit)="onSubmit()" #contactoForm="ngForm">
     <div class="form-group">
-      <label for="nombre">Nombre : </label>
+      <label for="nombre">{{'nameFieldForm' | translate}} </label>
       <input
         type="text"
         class="form-control"
@@ -12,7 +12,7 @@
         required
         minlength="4"
         maxlength="20"
-        placeholder="Escriba aquí su nombre"
+        placeholder="{{'nameFormPlaceholder' | translate}}"
         #nombre="ngModel"
       />
       <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
@@ -29,7 +29,7 @@
     </div>
 
     <div class="form-group">
-      <label for="apellidos">Apellidos : </label>
+      <label for="apellidos">{{'surnameFieldForm' | translate}}</label>
       <input
         type="text"
         class="form-control"
@@ -56,7 +56,7 @@
     </div>
 
     <div class="form-group">
-      <label for="telefono"> Teléfono: </label>
+      <label for="telefono"> {{'phoneFieldForm' | translate}} </label>
       <input
         type="text"
         class="form-control"
@@ -85,7 +85,7 @@
 
 
     <div class="form-group">
-      <label for="email">Email : </label>
+      <label for="email">{{'emailFieldForm' | translate}} </label>
       <input
         type="email"
         class="form-control"
@@ -108,7 +108,7 @@
     </div>
 
     <div class="form-group">
-      <label for="direccion"> Dirección: </label>
+      <label for="direccion"> {{'addressFieldForm' | translate}} </label>
       <input
         type="text"
         class="form-control"

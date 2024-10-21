@@ -3,13 +3,14 @@ import { Component } from '@angular/core';
 import { Empleado } from '../../model/empleado';
 import { EmpleadoService } from '../../services/empleado.service';
 import { Router, RouterLink } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import Swal from 'sweetalert2';
 
 
 @Component({
   selector: 'app-lista-empleados',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, TranslateModule],
   templateUrl: './lista-empleados.component.html',
   styleUrls: ['./lista-empleados.component.css']
 })

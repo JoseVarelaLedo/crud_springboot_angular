@@ -1,5 +1,5 @@
 {
-  "applicationTitle": "Sistema Xestión BD,",
+  "applicationTitle": "Sistema Xestión BD",
   "contactListTitle": "Lista de Contactos",
   "departmentListTitle": "Lista de Departamentos",
   "employeeListTitle": "Lista de Empregados",
@@ -44,5 +44,11 @@
   "departmentNameFormPlaceholder": "Introduza eiquí o nome do departamento",
   "nicknameFormPlaceholder": "Introduza eiquí o seu NickName",
   "nicknameFormPlaceHolder": "Introduza eiquí o NickName do usuario",
-  "passwordFormPlaceholder": "Introduza eiquí o contrasinal do usuario"
+  "passwordFormPlaceholder": "Introduza eiquí o contrasinal do usuario",
+  "spanish": "castelán",
+  "english": "inglés",
+  "galician": "galego",
+  "editContactTitle": "Edición de contacto",
+  "editDepartmentTitle": "Edición de departamento",
+  "editEmployeeTitle": "Edición de empregado"
 }

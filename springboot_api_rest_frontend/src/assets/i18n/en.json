@@ -1,5 +1,5 @@
 {
-  "applicationTitle": "DataBase Management,",
+  "applicationTitle": "DataBase Management",
   "contactListTitle": "Contacts List",
   "departmentListTitle": "Departments List",
   "employeeListTitle": "Employees List",
@@ -47,5 +47,8 @@
   "passwordFormPlaceholder": "Type here user´s passsword",
   "spanish": "spanish",
   "english": "english",
-  "galician": "galician"
+  "galician": "galician",
+  "editContactTitle": "Contact edition",
+  "editDepartmentTitle": "Department edition",
+  "editEmployeeTitle": "Employee edition"
 }

@@ -80,6 +80,14 @@ body {
   padding: 10px 15px;
   font-size: 14px;
 }
+
+.btn-lang {
+  display: flex;
+  justify-content: center;
+  width: 20px;
+  margin-left: 10%;
+}
+
 .table thead th {
   text-align: center;
   vertical-align: middle; /* Alinear verticalmente al centro */
